@@ -25,5 +25,11 @@ namespace MediatRExercise.Controllers
         {
             return await _mediator.Send(new GetEmployeesListQuery());
         }
+
+        [HttpGet("{id}")]
+        public async Task<EmployeeModel> Get(int id)
+        {
+            return await _mediator.Send(new GetEmployeeByIdQuery(id));
+        }
     }
 }

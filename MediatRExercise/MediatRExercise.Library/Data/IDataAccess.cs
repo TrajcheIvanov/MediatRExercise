@@ -11,5 +11,7 @@ namespace MediatRExercise.Library.Data
     {
         List<EmployeeModel> GetEmployees();
         EmployeeModel AddEmployee(string firstName, string lastName);
+
+        EmployeeModel GetEmployeeById(int id);
     }
 }

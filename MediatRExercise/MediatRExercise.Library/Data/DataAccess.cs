@@ -27,5 +27,10 @@ namespace MediatRExercise.Library.Data
         {
             return _employees;
         }
+
+        public EmployeeModel GetEmployeeById(int id)
+        {
+            return _employees.FirstOrDefault(x => x.Id == id);
+        }
     }
 }
