@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using MediatRExercise.Library.Commands;
 using MediatRExercise.Library.Models;
 using MediatRExercise.Library.Queries;
 using Microsoft.AspNetCore.Mvc;
@@ -30,6 +31,12 @@ namespace MediatRExercise.Controllers
         public async Task<EmployeeModel> Get(int id)
         {
             return await _mediator.Send(new GetEmployeeByIdQuery(id));
+        }
+
+        [HttpPost]
+        public async Task<EmployeeModel> Post([FromBody] EmployeeModel employeeModel)
+        {
+            return await _mediator.Send(new AddEmployeeCommand(employeeModel.FirstName, employeeModel.LastName));
         }
     }
 }

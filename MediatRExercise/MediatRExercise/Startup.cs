@@ -35,7 +35,7 @@ namespace MediatRExercise
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MediatRExercise", Version = "v1" });
             });
 
-            services.AddScoped<IDataAccess,DataAccess>();
+            services.AddSingleton<IDataAccess,DataAccess>();
             services.AddMediatR(typeof(DataAccess).Assembly);
         }
 
